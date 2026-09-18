@@ -1,0 +1,789 @@
+<title>Sachin Jain</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --emerald: #047857;
+  --emerald-light: #10b981;
+  --emerald-dark: #065f46;
+  --emerald-bg: #f0fdf4;
+  --emerald-subtle: rgba(16, 185, 129, 0.1);
+
+  --bg: #ffffff;
+  --bg-secondary: #f9fafb;
+  --text: #111827;
+  --text-secondary: #6b7280;
+  --border: #e5e7eb;
+  --border-light: #f3f4f6;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body {
+  padding-top: env(safe-area-inset-top, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Hero Section */
+header {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  background: linear-gradient(135deg, #ffffff 0%, var(--emerald-bg) 100%);
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 20s ease-in-out infinite;
+  z-index: 0;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(4, 120, 87, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 25s ease-in-out infinite reverse;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-weight: 800;
+  margin: 0 0 var(--space-md) 0;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+h1 strong {
+  color: var(--emerald);
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-xl) 0;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.location {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--emerald-bg);
+  border: 2px solid var(--emerald-light);
+  border-radius: 50px;
+  font-size: 0.95rem;
+  color: var(--emerald-dark);
+  margin-bottom: var(--space-xl);
+  font-weight: 600;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.85rem 2.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--emerald);
+  color: white;
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2);
+}
+
+.btn-primary:hover {
+  background: var(--emerald-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(4, 120, 87, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--emerald);
+  border: 2px solid var(--emerald);
+}
+
+.btn-secondary:hover {
+  background: var(--emerald-bg);
+}
+
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-md) var(--space-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-xl);
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a:hover {
+  color: var(--emerald);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--emerald);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Main Content */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+section {
+  margin-bottom: var(--space-2xl);
+  scroll-margin-top: 80px;
+}
+
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  margin: 0 0 var(--space-xl) 0;
+  color: var(--text);
+  position: relative;
+  padding-left: var(--space-lg);
+}
+
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--emerald);
+  border-radius: 2px;
+}
+
+h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--emerald);
+  margin: var(--space-lg) 0 var(--space-md) 0;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* About Section */
+.about-text {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--emerald);
+  padding: var(--space-xl);
+  border-radius: 8px;
+  margin-bottom: var(--space-xl);
+}
+
+.about-text p {
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Highlights Grid */
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+
+.highlight-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-light);
+  padding: var(--space-xl);
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.highlight-card:hover {
+  border-color: var(--emerald);
+  box-shadow: 0 12px 24px rgba(4, 120, 87, 0.08);
+  transform: translateY(-4px);
+}
+
+.highlight-number {
+  font-family: 'Syne', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--emerald);
+  margin-bottom: var(--space-sm);
+}
+
+.highlight-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Expertise Section */
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+
+.expertise-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  padding: var(--space-xl);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.expertise-card:hover {
+  border-color: var(--emerald);
+  box-shadow: 0 8px 16px rgba(4, 120, 87, 0.1);
+}
+
+.expertise-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.expertise-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expertise-card li {
+  padding: var(--space-sm) 0;
+  padding-left: var(--space-md);
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.expertise-card li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--emerald);
+  font-weight: bold;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: var(--space-xl);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--emerald), transparent);
+}
+
+.timeline-item {
+  margin-bottom: var(--space-2xl);
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  background: var(--emerald);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--emerald-bg);
+}
+
+.timeline-item h3 {
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.timeline-item .company {
+  color: var(--emerald);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.timeline-item .dates {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.timeline-item p {
+  margin: 0;
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+
+.project-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  padding: var(--space-xl);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--emerald);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: var(--emerald);
+  box-shadow: 0 8px 16px rgba(4, 120, 87, 0.1);
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.project-badge {
+  display: inline-block;
+  background: var(--emerald-bg);
+  color: var(--emerald-dark);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--emerald-light);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+}
+
+.project-card p {
+  margin: 0;
+}
+
+/* Certifications */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+
+.cert-badge {
+  background: var(--bg-secondary);
+  border: 2px solid var(--emerald);
+  padding: var(--space-lg);
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.cert-badge:hover {
+  background: var(--emerald-bg);
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.15);
+}
+
+.cert-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  color: var(--emerald);
+  margin-bottom: var(--space-xs);
+  font-size: 1.1rem;
+}
+
+.cert-org {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, var(--emerald-bg) 0%, #ecfdf5 100%);
+  border: 2px solid var(--emerald-light);
+  border-radius: 12px;
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  margin: var(--space-2xl) 0;
+  box-shadow: 0 4px 20px rgba(4, 120, 87, 0.1);
+}
+
+.cta-section h2 {
+  color: var(--emerald-dark);
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-xl);
+}
+
+/* Footer */
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--emerald);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    min-height: auto;
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  nav ul {
+    gap: var(--space-md);
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  main {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .expertise-grid,
+  .projects-grid,
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<nav>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#innovation">Innovation</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <div class="hero-content">
+    <h1>Sachin <strong>Jain</strong></h1>
+    <p class="subtitle">Solution Architect • Enterprise Architecture • Digital Transformation</p>
+    <div class="location">📍 Helsingborg, Sweden</div>
+    <div class="cta-buttons">
+      <a href="https://www.linkedin.com/in/sachin-jain-6859574/" class="btn btn-primary">View LinkedIn</a>
+      <a href="mailto:sachinjain47@gmail.com" class="btn btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <h2>About</h2>
+    <div class="about-text">
+      <p>
+        I architect enterprise-scale systems that drive digital transformation. With 20+ years architecting complex solutions across multivendor environments—from IKEA's global supply chain to Fortune 500 organizations—I combine deep technical expertise with business acumen and innovation mindset.
+      </p>
+      <p>
+        Currently at IKEA as Solution Architect, leading cross-functional technical initiatives for enterprise-scale business units. TOGAF 9.1 certified. Actively exploring AI-enabled architectures and agentic systems through personal projects, maintaining hands-on skills alongside strategic leadership.
+      </p>
+    </div>
+
+    <div class="highlights">
+      <div class="highlight-card">
+        <div class="highlight-number">20+</div>
+        <div class="highlight-label">Years Enterprise Tech</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-number">5</div>
+        <div class="highlight-label">Industries Mastered</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-number">TOGAF</div>
+        <div class="highlight-label">Certified Architect</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-number">100+</div>
+        <div class="highlight-label">Enterprise Projects</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <h2>Expertise</h2>
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <h3>Architecture & Strategy</h3>
+        <ul>
+          <li>Enterprise Architecture</li>
+          <li>Solution Design</li>
+          <li>Cloud Architecture Strategy</li>
+          <li>Microservices Architecture</li>
+          <li>System Integration</li>
+          <li>Technology Governance</li>
+        </ul>
+      </div>
+
+      <div class="expertise-card">
+        <h3>Technical Foundation</h3>
+        <ul>
+          <li>Cloud: Azure, AWS, OCI</li>
+          <li>Oracle: SOA, OSB, Fusion Middleware</li>
+          <li>ERP: Transportation Mgmt, E-Business Suite</li>
+          <li>Integration: REST APIs, SOA, Message Brokers</li>
+          <li>Emerging: AI/LLM, Agentic Systems</li>
+        </ul>
+      </div>
+
+      <div class="expertise-card">
+        <h3>Leadership & Impact</h3>
+        <ul>
+          <li>Cross-functional Team Leadership</li>
+          <li>Stakeholder & Vendor Management</li>
+          <li>Architecture Governance</li>
+          <li>Technical Risk Assessment</li>
+          <li>Organizational Change</li>
+          <li>Multivendor Environments</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Solution Architect</h3>
+        <div class="company">Inter IKEA Systems • Helsingborg, Sweden</div>
+        <div class="dates">2020 – Present</div>
+        <p>Lead architectural design for enterprise-scale technical initiatives. Architect cloud solutions, establish technology standards, manage vendor partnerships for mission-critical systems serving global organization.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Solution Architect</h3>
+        <div class="company">IKEA / Capgemini • Multiple Locations</div>
+        <div class="dates">2013 – 2020</div>
+        <p>Architected Oracle Transportation Management modernization. Led enterprise integration migration from legacy systems to Oracle SOA/OSB. Designed information architecture supporting company-wide digital transformation in complex multivendor environment.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Technology Architect</h3>
+        <div class="company">T-Mobile Inc. • USA</div>
+        <div class="dates">2012 – 2013</div>
+        <p>Architected SOA-based integration solutions for retail platform. Led requirements analysis and technology strategy for enterprise-scale system modernization.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Additional Roles</h3>
+        <div class="company">Boeing • VMware • Cisco • Oracle India • Others</div>
+        <div class="dates">2004 – 2012</div>
+        <p>Progression from Developer to Tech Lead to Architect across aerospace, virtualization, networking, and enterprise software. Built foundation in complex, mission-critical systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="innovation">
+    <h2>Innovation & Emerging Tech</h2>
+    <p>Beyond enterprise architecture, I actively explore next-generation technologies through personal projects, demonstrating hands-on technical depth and commitment to continuous evolution.</p>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-badge">AI Systems</div>
+        <h3>NCA Hub</h3>
+        <p>Custom platform developed from concept to production. Explores innovative system design and emerging architectural patterns. Demonstrates end-to-end product thinking and hands-on technical execution beyond traditional enterprise roles.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-badge">AI & Data</div>
+        <h3>OTM Datapilot (Agentic)</h3>
+        <p>Advanced data pipeline exploring agentic AI systems, intelligent data processing, and LLM integration patterns. Personal learning initiative focused on understanding how AI enhances enterprise data architecture and automation.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-badge">Continuous Learning</div>
+        <h3>Active Exploration</h3>
+        <p>Deep dive into prompt engineering, LLM integration patterns, and agentic system design. Building practical understanding of how emerging AI technologies integrate with enterprise solutions and modernization strategies.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="cert-grid">
+      <div class="cert-badge">
+        <div class="cert-name">TOGAF® 9.1</div>
+        <div class="cert-org">Level 1 & 2 Certified</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-name">OCI Architect</div>
+        <div class="cert-org">Associate Certified</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-name">Oracle Fusion</div>
+        <div class="cert-org">Middleware Practitioner</div>
+      </div>
+      <div class="cert-badge">
+        <div class="cert-name">IBM BPM</div>
+        <div class="cert-org">Certified Developer</div>
+      </div>
+    </div>
+  </section>
+
+  <div id="contact" class="cta-section">
+    <h2>Let's Connect</h2>
+    <p>Actively exploring Solution Architect opportunities in Copenhagen and South Sweden. Let's discuss how enterprise architecture expertise combined with innovation mindset can drive your organization's digital transformation.</p>
+    <div class="cta-buttons">
+      <a href="https://www.linkedin.com/in/sachin-jain-6859574/" class="btn btn-primary">Open LinkedIn</a>
+      <a href="mailto:sachinjain47@gmail.com" class="btn btn-secondary">Send Email</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Sachin Jain.</p>
+</footer>
